@@ -13,8 +13,7 @@ Reusable OpenClaw skill + patch script for adding a **Security Audit** button to
 ## Quick setup (another machine)
 
 1. Make sure OpenClaw is installed and the Gateway dashboard is already working.
-2. Clone this repo:
-   - `git clone https://github.com/99redder/openclaw-dashboard-security-audit-button-skill.git`
+2. Clone your copy of this repo (or download ZIP from GitHub).
 3. Enter the repo:
    - `cd openclaw-dashboard-security-audit-button-skill`
 4. Run the patch script:
@@ -38,6 +37,13 @@ Then confirm audit output appears in chat.
 Run with path override:
 
 `OPENCLAW_CUSTOM_DIR=/path/to/openclaw-custom ./dashboard-security-audit-button/scripts/apply_security_audit_button.sh`
+
+## Security notes
+
+- No telemetry or external network calls are added by this patch script.
+- No credential harvesting or token export logic is included.
+- The script only patches local dashboard bundle files and runs local OpenClaw commands.
+- Review the script before running in your environment (recommended for all patch tooling).
 
 ## Skill package
 
