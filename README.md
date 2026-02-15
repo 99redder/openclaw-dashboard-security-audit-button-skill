@@ -10,7 +10,7 @@ Reusable OpenClaw skill + patch script for adding a **Security Audit** button to
 - Uses default dashboard button styling (customize however you want)
 - You can fully style `.security-audit-btn` later in your own CSS/theme
 
-## Quick setup (another machine)
+## Quick setup
 
 1. Make sure OpenClaw is installed and the Gateway dashboard is already working.
 2. Clone your copy of this repo (or download ZIP from GitHub).
