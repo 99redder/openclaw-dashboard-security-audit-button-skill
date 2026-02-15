@@ -9,10 +9,8 @@ if [[ ! -d "$CUSTOM_DIR" ]]; then
 fi
 
 JS_FILE="$(ls -1 "$CUSTOM_DIR"/index-*.js 2>/dev/null | head -n1 || true)"
-CSS_FILE="$(ls -1 "$CUSTOM_DIR"/index-*.css 2>/dev/null | head -n1 || true)"
-
-if [[ -z "$JS_FILE" || -z "$CSS_FILE" ]]; then
-  echo "Could not find index-*.js or index-*.css in $CUSTOM_DIR" >&2
+if [[ -z "$JS_FILE" ]]; then
+  echo "Could not find index-*.js in $CUSTOM_DIR" >&2
   exit 1
 fi
 
@@ -59,24 +57,6 @@ p.write_text(s)
 print(f'Patched JS: {p}')
 PY
 
-python3 - "$CSS_FILE" <<'PY'
-from pathlib import Path
-import sys
-
-p=Path(sys.argv[1])
-s=p.read_text()
-block='''.security-audit-btn{background:#ff2bd6!important;border-color:#ff2bd6!important;color:#000!important}
-.security-audit-btn:hover{background:#ff6fe7!important;border-color:#ff6fe7!important;color:#000!important}
-'''
-if '.security-audit-btn{' not in s:
-    if '.backup-now-btn{' in s:
-        s=s.replace('.backup-now-btn{', block + '.backup-now-btn{', 1)
-    else:
-        s += '\n' + block
-    p.write_text(s)
-print(f'Patched CSS: {p}')
-PY
-
 if command -v node >/dev/null 2>&1; then
   node --check "$JS_FILE"
 fi
@@ -87,3 +67,5 @@ if [[ -x "$CUSTOM_DIR/reapply-dashboard-customizations.sh" ]]; then
 else
   echo "Patch complete. Reapply script not found at: $CUSTOM_DIR/reapply-dashboard-customizations.sh"
 fi
+
+echo "Note: This skill does not enforce custom colors/styles. You can style .security-audit-btn however you want in your dashboard CSS."

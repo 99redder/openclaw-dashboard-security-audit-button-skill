@@ -23,7 +23,7 @@ Apply a reusable patch for the OpenClaw dashboard that adds a chat-driven Securi
 - Uses command text:
   - `Run \`openclaw security audit --deep\` on the host. Return the raw terminal output in plain text. If it fails, return the exact error output.`
 - Keeps results in chat (no modal).
-- Adds neon pink button styling with black text.
+- Leaves button styling at dashboard defaults (safe baseline for downstream customization).
 
 ## Files touched
 

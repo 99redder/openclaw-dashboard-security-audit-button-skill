@@ -7,7 +7,8 @@ Reusable OpenClaw skill + patch script for adding a **Security Audit** button to
 - Adds topbar **Security Audit** button (left of Backup now)
 - Runs chat-driven `openclaw security audit --deep`
 - Button states: `Running…` → `Posting to Chat` → `Posted to Chat` → `Security Audit`
-- Neon pink button styling with black text
+- Uses default dashboard button styling (customize however you want)
+- You can fully style `.security-audit-btn` later in your own CSS/theme
 
 ## Quick setup (another machine)
 
@@ -28,7 +29,7 @@ Click **Security Audit** and confirm this sequence:
 - `Running…`
 - `Posting to Chat`
 - `Posted to Chat`
-- `Security Audit`
+- back to `Security Audit`
 
 Then confirm audit output appears in chat.
 
