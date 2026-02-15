@@ -1,6 +1,6 @@
 ---
 name: dashboard-security-audit-button
-description: Add or update a Gateway Dashboard topbar "Security Audit" button that runs `openclaw security audit --deep`, posts results to chat, and shows button-state feedback (Running → Posting to Chat). Use when customizing OpenClaw Control UI bundles under `~/.openclaw/workspace/openclaw-custom` and reapplying changes to hashed dashboard assets after updates.
+description: Add or update a Gateway Dashboard topbar "Security Audit" button that runs `openclaw security audit --deep`, posts results to chat, and shows button-state feedback (Running → Posting to Chat → Audit Complete). Use when customizing OpenClaw Control UI bundles under `~/.openclaw/workspace/openclaw-custom` and reapplying changes to hashed dashboard assets after updates.
 ---
 
 # Dashboard Security Audit Button
@@ -13,7 +13,8 @@ Apply a reusable patch for the OpenClaw dashboard that adds a chat-driven Securi
 2. Hard refresh the dashboard (`Cmd+Shift+R`).
 3. Click **Security Audit** and verify this flow:
    - `Running…`
-   - `Posting to Chat` (brief status)
+   - `Posting to Chat` (blinks 4s)
+   - `Audit Complete` (blinks 3s)
    - `Security Audit`
 
 ## What this patch changes
